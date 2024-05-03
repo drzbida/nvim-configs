@@ -1,0 +1,18 @@
+return {
+    { import = "plugins.setups.copilot" },
+    { import = "plugins.setups.auto-session" },
+    { import = "plugins.setups.which-key" },
+    { import = "plugins.setups.color-picker" },
+    { import = "plugins.setups.cmp" },
+    { import = "plugins.setups.lsp_signature" },
+    { import = "plugins.setups.noice" },
+    { import = "plugins.setups.inc-rename" },
+    { import = "plugins.setups.conform" },
+    { import = "plugins.setups.lspconfig" },
+    { import = "plugins.setups.mason" },
+    { import = "plugins.setups.treesitter" },
+    { import = "plugins.setups.dap" },
+    { import = "plugins.setups.dap-ui" },
+    { import = "plugins.setups.dap-python" },
+    { import = "plugins.setups.neo-tree" },
+}
