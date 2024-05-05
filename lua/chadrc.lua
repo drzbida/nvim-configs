@@ -9,7 +9,7 @@ M.ui = {
     nvdash = {
         load_on_startup = true,
     },
-
+    statusline = require "configs.statusline",
     hl_override = {
         ["@variable.parameter"] = {
             bold = true,

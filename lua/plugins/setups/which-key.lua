@@ -15,6 +15,7 @@ return {
                 g = { name = "+git" },
                 m = { name = "+marks" },
                 w = { name = "+which/workspace" },
+                v = { name = "+enviroment" },
             },
         }
     end,

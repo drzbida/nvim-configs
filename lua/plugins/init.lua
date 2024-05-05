@@ -15,4 +15,5 @@ return {
     { import = "plugins.setups.dap-ui" },
     { import = "plugins.setups.dap-python" },
     { import = "plugins.setups.neo-tree" },
+    { import = "plugins.setups.venv-selector" },
 }
