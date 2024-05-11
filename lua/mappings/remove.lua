@@ -8,3 +8,6 @@ unmap("n", "<Leader>q") -- LSP diagnostics quickfix
 unmap("n", "<Leader>th") -- Telescope themes
 unmap("n", "<Leader>lf") -- LSP floating diagnostics
 unmap("n", "<Leader>lp") -- Set log point
+unmap("n", "<M-v>") -- Toggleable vertical terminal
+unmap("n", "<M-h>") -- New horizontal terminal
+unmap("n", "<M-i>") -- Toggleable floating terminal

@@ -32,17 +32,3 @@ vim.o.tabstop = 4 -- A TAB character looks like 4 spaces
 vim.o.expandtab = true -- Pressing the TAB key will insert spaces instead of a TAB character
 vim.o.softtabstop = 4 -- Number of spaces inserted instead of a TAB character
 vim.o.shiftwidth = 4 -- Number of spaces inserted when indenting
-vim.lsp.handlers["textDocument/hover"] = function(_, result, ctx, config)
-    config = config or {}
-    config.focus_id = ctx.method
-    vim.notify("HoverTest", vim.log.levels.INFO)
-    if not (result and result.contents) then
-        return
-    end
-    local markdown_lines = vim.lsp.util.convert_input_to_markdown_lines(result.contents)
-    markdown_lines = vim.lsp.util.trim_empty_lines(markdown_lines)
-    if vim.tbl_isempty(markdown_lines) then
-        return
-    end
-    return vim.lsp.util.open_floating_preview(markdown_lines, "markdown", config)
-end

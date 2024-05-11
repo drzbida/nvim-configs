@@ -11,6 +11,8 @@ return {
             "eslint_d",
             "angular-language-server",
             "pyright",
+            "isort",
+            "black",
         },
     },
 }
