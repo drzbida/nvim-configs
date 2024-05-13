@@ -13,6 +13,7 @@ return {
             "pyright",
             "isort",
             "black",
+            "debugpy",
         },
     },
 }

@@ -9,6 +9,9 @@ return {
             "css",
             "typescript",
             "python",
+            "gdscript",
+            "godot_resource",
+            "gdshader",
         },
     },
 }

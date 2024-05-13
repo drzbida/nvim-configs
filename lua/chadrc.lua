@@ -29,6 +29,14 @@ M.ui = {
             bold = true,
         },
     },
+    hl_add = {
+        ["DapStopped"] = {
+            bg = "#061e55",
+        },
+        ["NvimDapVirtualText"] = {
+            fg = "#d6ff07",
+        },
+    },
 }
 
 return M

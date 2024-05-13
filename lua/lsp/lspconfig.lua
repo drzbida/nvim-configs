@@ -2,6 +2,7 @@ local lspconfig = require "lspconfig"
 local on_attach = require("nvchad.configs.lspconfig").on_attach
 local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
+local merge = require("helpers").merge
 
 local function default_config()
     return {
@@ -11,27 +12,19 @@ local function default_config()
     }
 end
 
-local function merge_config(defaults, server_config)
-    if server_config then
-        for key, value in pairs(server_config) do
-            defaults[key] = value
-        end
-    end
-    return defaults
-end
-
 local servers = {
     "html",
     "cssls",
     "tsserver",
     "angularls",
     "pyright",
+    "gdscript",
 }
 
 for _, lsp in ipairs(servers) do
     local ok, server_config = pcall(require, "lsp.servers." .. lsp)
     if ok then
-        local config = merge_config(default_config(), server_config)
+        local config = merge(default_config(), server_config)
         lspconfig[lsp].setup(config)
     else
         vim.notify(lsp .. " configuration could not be loaded", vim.log.levels.ERROR)

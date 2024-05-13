@@ -13,7 +13,7 @@ return {
     { import = "plugins.setups.treesitter" },
     { import = "plugins.setups.dap" },
     { import = "plugins.setups.dap-ui" },
-    { import = "plugins.setups.dap-python" },
+    { import = "plugins.setups.dap-virtual-text" },
     { import = "plugins.setups.neo-tree" },
     { import = "plugins.setups.venv-selector" },
 }
