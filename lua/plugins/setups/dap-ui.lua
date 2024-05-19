@@ -48,6 +48,13 @@ local ExceptionControl = {
                     if current_exception_filters[index] then
                         current_exception_filters[index].active = not current_exception_filters[index].active
                     end
+                    local active_filters = {}
+                    for _, filter in ipairs(current_exception_filters) do
+                        if filter.active then
+                            table.insert(active_filters, filter.exceptionId)
+                        end
+                    end
+                    require("dap").set_exception_breakpoints(active_filters)
                     self:render()
                 end
             end, { buffer = exception_bufnr, noremap = true, silent = true })

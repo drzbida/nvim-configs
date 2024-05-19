@@ -36,6 +36,20 @@ M.ui = {
         ["NvimDapVirtualText"] = {
             fg = "#d6ff07",
         },
+        ["DapUIExceptionSettingsTitle"] = {
+            fg = "#00F1F5",
+        },
+        ["DapUIExceptionSettingsBreakpointActive"] = {
+            fg = "#F70067",
+        },
+        ["DapUIExceptionSettingsBreakpointInactive"] = {
+            fg = "#424242",
+        },
+        ["WindowPickerStatusLineNC"] = {
+            fg = "#f07174",
+            bg = "#12151b",
+            bold = true,
+        },
     },
 }
 

@@ -31,3 +31,26 @@ map("n", "<leader><leader>f", function()
         pos = "float",
     }
 end, { noremap = true, silent = true, desc = "Toggle Floating Terminal" })
+
+map("n", "<leader><leader>r", function()
+    require("nvchad.term").runner {
+        id = "boo",
+        pos = "sp",
+        cmd = function()
+            local file = vim.fn.expand "%"
+
+            local ft_cmds = {
+                python = "python src\\main.py",
+            }
+
+            return ft_cmds[vim.bo.ft]
+        end,
+    }
+end, { noremap = true, silent = true, desc = "Close Terminal" })
+
+map("n", "<C-w>p", function()
+    local picked_window = require("window-picker").pick_window()
+    if picked_window then
+        vim.api.nvim_set_current_win(picked_window)
+    end
+end, { noremap = true, silent = true, desc = "Pick Window" })
