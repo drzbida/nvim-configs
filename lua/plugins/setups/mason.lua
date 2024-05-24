@@ -14,6 +14,7 @@ return {
             "isort",
             "black",
             "debugpy",
+            "js-debug-adapter",
         },
     },
 }
