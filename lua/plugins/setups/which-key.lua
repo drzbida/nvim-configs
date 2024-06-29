@@ -17,6 +17,7 @@ return {
                 w = { name = "+which/workspace" },
                 v = { name = "+enviroment" },
                 t = { name = "+terminal" },
+                q = { name = "+trouble" },
             },
         }
     end,
