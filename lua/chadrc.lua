@@ -29,21 +29,24 @@ M.ui = {
             bold = true,
         },
         ["DiffChange"] = {
-            bg = "#2e2e42",
-            fg = "NONE",
+            bg = "#0A1222",
+            fg = "#54575d",
         },
         ["DiffAdd"] = {
-            bg = "#337d20",
+            bg = "#0A1222",
             fg = "NONE",
         },
         ["DiffDelete"] = {
-            bg = "#873f2b",
+            bg = "#331800",
             fg = "NONE",
+        },
+        ["DiffText"] = {
+            reverse = true,
         },
     },
     hl_add = {
         ["DapStopped"] = {
-            bg = "#061e55",
+            bg = "#0A1222",
         },
         ["NvimDapVirtualText"] = {
             fg = "#d6ff07",

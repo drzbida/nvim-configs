@@ -17,7 +17,6 @@ return {
                 m = { name = "+marks" },
                 w = { name = "+which/workspace" },
                 v = { name = "+enviroment" },
-                t = { name = "+terminal" },
             },
             ["<leader>s"] = {
                 s = { name = "+history" },
