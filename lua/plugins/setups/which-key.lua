@@ -9,15 +9,18 @@ return {
         end
         wk.register {
             ["<leader>"] = {
+                s = { name = "+source control" },
                 c = { name = "+code" },
                 d = { name = "+debug" },
                 f = { name = "+find" },
-                g = { name = "+git" },
+                g = { name = "+goto" },
                 m = { name = "+marks" },
                 w = { name = "+which/workspace" },
                 v = { name = "+enviroment" },
                 t = { name = "+terminal" },
-                q = { name = "+trouble" },
+            },
+            ["<leader>s"] = {
+                s = { name = "+history" },
             },
         }
     end,

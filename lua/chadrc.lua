@@ -28,6 +28,18 @@ M.ui = {
         ["@variable.builtin"] = {
             bold = true,
         },
+        ["DiffChange"] = {
+            bg = "#2e2e42",
+            fg = "NONE",
+        },
+        ["DiffAdd"] = {
+            bg = "#337d20",
+            fg = "NONE",
+        },
+        ["DiffDelete"] = {
+            bg = "#873f2b",
+            fg = "NONE",
+        },
     },
     hl_add = {
         ["DapStopped"] = {
