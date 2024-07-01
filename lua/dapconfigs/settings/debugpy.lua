@@ -14,8 +14,8 @@ local resolve_python = function()
     end
     local pythonFolder = nil
 
-    if require("venv-selector").get_active_venv() then
-        pythonFolder = require("venv-selector").get_active_venv()
+    if require("venv-selector").venv() then
+        pythonFolder = require("venv-selector").venv()
     elseif os.getenv "VIRTUAL_ENV" then
         pythonFolder = os.getenv "VIRTUAL_ENV"
     end

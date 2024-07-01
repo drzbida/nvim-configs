@@ -1,6 +1,6 @@
 local python_symbol = "🐍"
 local function get_python_venv()
-    local venv = require("venv-selector").get_active_venv()
+    local venv = require("venv-selector").venv()
     if not venv then
         venv = os.getenv "VIRTUAL_ENV"
         if venv then
