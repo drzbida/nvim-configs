@@ -17,7 +17,7 @@ local servers = {
     "cssls",
     "tsserver",
     "angularls",
-    "pyright",
+    "basedpyright",
     "gdscript",
 }
 

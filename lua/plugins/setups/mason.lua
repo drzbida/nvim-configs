@@ -10,7 +10,7 @@ return {
             "typescript-language-server",
             "eslint_d",
             "angular-language-server",
-            "pyright",
+            "basedpyright",
             "isort",
             "black",
             "debugpy",
