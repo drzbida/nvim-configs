@@ -1,5 +1,4 @@
 return {
-    -- format on save
     "stevearc/conform.nvim",
     event = "BufWritePre",
     opts = {
@@ -14,6 +13,16 @@ return {
         format_on_save = {
             timeout_ms = 2000,
             lsp_fallback = true,
+        },
+
+        formatters = {
+            isort = {
+                include_trailing_comma = true,
+                command = "isort",
+            },
+            black = {
+                command = "black",
+            },
         },
     },
     config = function(_, opts)

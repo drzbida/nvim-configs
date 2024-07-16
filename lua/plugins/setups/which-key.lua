@@ -7,20 +7,18 @@ return {
         if not present then
             return
         end
-        wk.register {
-            ["<leader>"] = {
-                s = { name = "+source control" },
-                c = { name = "+code" },
-                d = { name = "+debug" },
-                f = { name = "+find" },
-                g = { name = "+goto" },
-                m = { name = "+marks" },
-                w = { name = "+which/workspace" },
-                v = { name = "+enviroment" },
-            },
-            ["<leader>s"] = {
-                s = { name = "+history" },
-            },
+        wk.add {
+            { "<leader>c", group = "code" },
+            { "<leader>d", group = "debug" },
+            { "<leader>f", group = "find" },
+            { "<leader>g", group = "goto" },
+            { "<leader>m", group = "marks" },
+            { "<leader>s", group = "source control" },
+            { "<leader>ss", group = "history" },
+            { "<leader>v", group = "enviroment" },
+            { "<leader>w", group = "which/workspace" },
+            { "<leader><leader>", group = "terminal" },
+            { "<leader>q", group = "trouble" },
         }
     end,
     setup = function()
