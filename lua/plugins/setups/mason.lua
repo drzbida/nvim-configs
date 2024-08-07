@@ -15,6 +15,7 @@ return {
             "black",
             "debugpy",
             "js-debug-adapter",
+            "bash-language-server",
         },
     },
 }
