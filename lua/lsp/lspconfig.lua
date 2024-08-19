@@ -20,6 +20,7 @@ local servers = {
     "basedpyright",
     "gdscript",
     "bashls",
+    "omnisharp",
 }
 
 for _, lsp in ipairs(servers) do
