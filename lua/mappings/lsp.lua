@@ -15,3 +15,7 @@ map("i", "<Tab>", function()
         vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
     end
 end, { desc = "Super Tab" })
+
+map("n", "<leader>cA", function()
+    require("actions-preview").code_actions()
+end, { noremap = false, silent = true, desc = "Code actions" })
