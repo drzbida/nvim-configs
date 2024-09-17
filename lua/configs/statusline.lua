@@ -18,6 +18,7 @@ return {
         "mode",
         "file",
         "git",
+        "noice_recording",
         "%=",
         "lsp_msg",
         "%=",
@@ -34,6 +35,14 @@ return {
                 return get_python_venv()
             end
             return ""
+        end,
+        noice_recording = function()
+            local noice = require "noice"
+            if noice.api.statusline.mode.has() then
+                return "%#NoiceRecordingHl#" .. " " .. noice.api.statusline.mode.get()
+            else
+                return ""
+            end
         end,
     },
 }

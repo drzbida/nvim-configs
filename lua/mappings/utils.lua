@@ -54,3 +54,19 @@ map("n", "<C-w>p", function()
         vim.api.nvim_set_current_win(picked_window)
     end
 end, { noremap = true, silent = true, desc = "Pick Window" })
+
+-- Markdown Previews
+map("n", "<leader>tm", function()
+    require("render-markdown").toggle()
+end, { noremap = true, silent = true, desc = "Toggle Markdown Preview" })
+
+local list_snips = function()
+    local ft_list = require("luasnip").available()[vim.o.filetype]
+    local ft_snips = {}
+    for _, item in pairs(ft_list) do
+        ft_snips[item.trigger] = item.name
+    end
+    print(vim.inspect(ft_snips))
+end
+
+vim.api.nvim_create_user_command("SnipList", list_snips, {})
