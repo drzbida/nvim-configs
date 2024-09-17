@@ -19,6 +19,7 @@ local servers = {
     "angularls",
     "basedpyright",
     "gdscript",
+    "bashls",
 }
 
 for _, lsp in ipairs(servers) do

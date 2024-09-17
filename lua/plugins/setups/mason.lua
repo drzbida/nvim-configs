@@ -15,6 +15,10 @@ return {
             "black",
             "debugpy",
             "js-debug-adapter",
+            "bash-language-server",
+            "gdscript",
+            "godot_resource",
+            "gdshader",
         },
     },
 }
