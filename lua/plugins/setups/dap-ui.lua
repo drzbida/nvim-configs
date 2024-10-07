@@ -37,6 +37,10 @@ end
 
 local ExceptionControl = {
     buffer = function(self)
+        -- test
+        while true do
+            break
+        end
         if not exception_bufnr or not vim.api.nvim_buf_is_valid(exception_bufnr) then
             exception_bufnr = vim.api.nvim_create_buf(false, true)
             vim.api.nvim_buf_set_name(exception_bufnr, "DAP Exception Controls")

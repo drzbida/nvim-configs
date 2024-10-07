@@ -3,10 +3,14 @@ local map = vim.keymap.set
 -- COLOR PICKER KEYBINDS
 map("n", "<C-c>", function()
     if vim.bo.buftype ~= "terminal" then
-        vim.cmd "PickColor"
+        require("minty.huefy").open()
     end
 end, { noremap = true, silent = true })
-map("i", "<C-c>", "<cmd>PickColorInsert<cr>", { noremap = true, silent = true })
+map("i", "<C-c>", function()
+    if vim.bo.buftype ~= "terminal" then
+        require("minty.huefy").open()
+    end
+end, { noremap = true, silent = true })
 
 -- VENV SELECTOR KEYBINDS
 map("n", "<leader>vs", "<cmd>VenvSelect<cr>", { noremap = true, silent = true, desc = "Venv Select" })
