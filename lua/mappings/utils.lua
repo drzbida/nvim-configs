@@ -3,10 +3,14 @@ local map = vim.keymap.set
 -- COLOR PICKER KEYBINDS
 map("n", "<C-c>", function()
     if vim.bo.buftype ~= "terminal" then
-        vim.cmd "PickColor"
+        require("minty.huefy").open()
     end
 end, { noremap = true, silent = true })
-map("i", "<C-c>", "<cmd>PickColorInsert<cr>", { noremap = true, silent = true })
+map("i", "<C-c>", function()
+    if vim.bo.buftype ~= "terminal" then
+        require("minty.huefy").open()
+    end
+end, { noremap = true, silent = true })
 
 -- VENV SELECTOR KEYBINDS
 map("n", "<leader>vs", "<cmd>VenvSelect<cr>", { noremap = true, silent = true, desc = "Venv Select" })
@@ -31,22 +35,6 @@ map("n", "<leader><leader>f", function()
         pos = "float",
     }
 end, { noremap = true, silent = true, desc = "Toggle Floating Terminal" })
-
-map("n", "<leader><leader>r", function()
-    require("nvchad.term").runner {
-        id = "boo",
-        pos = "sp",
-        cmd = function()
-            local file = vim.fn.expand "%"
-
-            local ft_cmds = {
-                python = "python src\\main.py",
-            }
-
-            return ft_cmds[vim.bo.ft]
-        end,
-    }
-end, { noremap = true, silent = true, desc = "Close Terminal" })
 
 map("n", "<C-w>p", function()
     local picked_window = require("window-picker").pick_window()

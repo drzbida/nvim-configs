@@ -15,3 +15,11 @@ map("i", "<Tab>", function()
         vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
     end
 end, { desc = "Super Tab" })
+
+map("n", "<leader>cA", function()
+    require("actions-preview").code_actions()
+end, { noremap = false, silent = true, desc = "Code actions" })
+
+map("n", "<leader>i", function()
+    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end, { noremap = true, silent = true, desc = "Toggle inlay hints" })

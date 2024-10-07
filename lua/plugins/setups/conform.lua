@@ -8,6 +8,7 @@ return {
             html = { "prettier" },
             typescript = { "eslint" },
             python = { "isort", "black" },
+            cs = { "csharpier" },
         },
 
         format_on_save = {
@@ -22,6 +23,10 @@ return {
             },
             black = {
                 command = "black",
+            },
+            csharpier = {
+                command = "dotnet-csharpier",
+                args = { "--write-stdout" },
             },
         },
     },
