@@ -5,19 +5,31 @@
 local options = {}
 
 options.base46 = {
-    theme = "rosepine",
+    theme = "radium",
     hl_override = {
         ["@function.call"] = {
             bold = true,
         },
-        ["@variable.parameter"] = {
+        ["@function.method.call"] = {
             bold = true,
         },
-        ["@comment"] = {
-            italic = true,
+    },
+    hl_add = {
+        ["DiagnosticVirtualTextError"] = {
+            fg = "#DB302D",
+            bg = "#570F0E",
         },
-        ["@keyword.conditional"] = {
-            link = "@keyword.repeat",
+        ["DiagnosticVirtualTextHint"] = {
+            fg = "#29A298",
+            bg = "#103A3C",
+        },
+        ["DiagnosticVirtualTextWarn"] = {
+            fg = "#DDB80A",
+            bg = "#574A0E",
+        },
+        ["DiagnosticVirtualTextInfo"] = {
+            fg = "#268BD2",
+            bg = "#0E2840",
         },
     },
 }
