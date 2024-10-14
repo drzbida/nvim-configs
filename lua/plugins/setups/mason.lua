@@ -37,6 +37,10 @@ return {
             -- .net
             "roslyn",
             "netcoredbg",
+
+            -- rust
+            "rust-analyzer",
+            "codelldb",
         },
     },
 }
