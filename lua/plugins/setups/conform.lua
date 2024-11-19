@@ -7,7 +7,7 @@ return {
             css = { "prettier" },
             html = { "prettier" },
             typescript = { "eslint" },
-            python = { "isort", "black" },
+            python = {},
             cs = { "csharpier" },
         },
 
@@ -17,13 +17,6 @@ return {
         },
 
         formatters = {
-            isort = {
-                include_trailing_comma = true,
-                command = "isort",
-            },
-            black = {
-                command = "black",
-            },
             csharpier = {
                 command = "dotnet-csharpier",
                 args = { "--write-stdout" },

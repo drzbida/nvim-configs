@@ -22,9 +22,8 @@ return {
 
             -- python
             "basedpyright",
-            "isort",
-            "black",
             "debugpy",
+            "ruff",
 
             -- scripting
             "bash-language-server",
