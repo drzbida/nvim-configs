@@ -7,7 +7,6 @@ return {
         },
         ensure_installed = {
             -- lua
-
             "lua-language-server",
             "stylua",
 
@@ -35,7 +34,7 @@ return {
 
             -- .net
             "roslyn",
-            "netcoredbg",
+            -- "netcoredbg",
 
             -- rust
             "rust-analyzer",
