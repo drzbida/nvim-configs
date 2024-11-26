@@ -31,6 +31,21 @@ options.base46 = {
             fg = "#268BD2",
             bg = "#0E2840",
         },
+        ["DapStopped"] = {
+            bg = "#0A1222",
+        },
+        ["NvimDapVirtualText"] = {
+            fg = "#d6ff07",
+        },
+        ["DapUIExceptionSettingsTitle"] = {
+            fg = "#00F1F5",
+        },
+        ["DapUIExceptionSettingsBreakpointActive"] = {
+            fg = "#F70067",
+        },
+        ["DapUIExceptionSettingsBreakpointInactive"] = {
+            fg = "#424242",
+        },
     },
 }
 

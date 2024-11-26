@@ -157,7 +157,11 @@ return {
                 elements = {
                     {
                         id = "console",
-                        size = 1,
+                        size = 0.5,
+                    },
+                    {
+                        id = "repl",
+                        size = 0.5,
                     },
                 },
                 position = "bottom",

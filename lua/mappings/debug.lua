@@ -2,6 +2,7 @@ local map = vim.keymap.set
 
 -- DAP KEYBINDS
 map("n", "<F5>", function()
+    require("overseer").enable_dap()
     if vim.fn.filereadable ".vscode/launch.json" then
         require("dap.ext.vscode").load_launchjs()
     end
