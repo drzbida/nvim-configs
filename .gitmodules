@@ -1,0 +1,3 @@
+[submodule "lua/dapconfigs/dap-dotnet"]
+	path = lua/dapconfigs/dap-dotnet
+	url = https://github.com/drzbida/dap-dotnet
