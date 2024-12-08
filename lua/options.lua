@@ -46,4 +46,5 @@ if os.getenv "SSH_CLIENT" ~= nil or os.getenv "SSH_TTY" ~= nil then
     }
 end
 
-vim.g.copilot_filetypes = { markdown = true }
+vim.cmd "autocmd FileType * set formatoptions-=cro"
+vim.cmd "autocmd FileType * setlocal formatoptions-=cro"
