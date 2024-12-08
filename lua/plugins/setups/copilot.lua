@@ -10,8 +10,4 @@ return {
             },
         },
     },
-    config = function(_, opts)
-        vim.g.copilot_filetypes = { markdown = true }
-        require("copilot").setup(opts)
-    end,
 }

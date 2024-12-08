@@ -1,8 +1,15 @@
 return {
     "smjonas/inc-rename.nvim",
-    event = "VeryLazy",
+    lazy = true,
     opts = {},
-    config = function(_, opts)
-        require("inc_rename").setup(opts)
-    end,
+    keys = {
+        {
+            "<Leader>cr",
+            function()
+                return ":IncRename " .. vim.fn.expand "<cword>"
+            end,
+            expr = true,
+            desc = "LSP Rename",
+        },
+    },
 }

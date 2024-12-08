@@ -53,7 +53,7 @@ return {
                 --     dotnet_compiler_diagnostics_scope = "fullSolution",
                 --     dotnet_analyzer_diagnostics_scope = "fullSolution",
                 -- },
-                -- ["csharp|code_lens"] = { dotnet_enable_references_code_lens = true },
+                ["csharp|code_lens"] = { dotnet_enable_references_code_lens = true },
             },
         },
     },

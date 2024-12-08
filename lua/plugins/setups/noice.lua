@@ -8,9 +8,20 @@ return {
                     event = "notify",
                     find = "No information available",
                 },
+
                 opts = {
                     skip = true,
                 },
+            },
+            {
+                -- copilot garbage
+                filter = {
+                    event = "msg_show",
+                    any = {
+                        { find = "Agent service not initialized" },
+                    },
+                },
+                opts = { skip = true },
             },
         },
         lsp = {

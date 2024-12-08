@@ -35,7 +35,6 @@ local enrich_config = function(config, on_config)
 end
 
 dap.adapters.python = function(cb, config)
-    print(config)
     if config.request == "attach" then
         ---@diagnostic disable-next-line: undefined-field
         local port = (config.connect or config).port

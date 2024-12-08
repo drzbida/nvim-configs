@@ -10,7 +10,4 @@ return {
     opts = {
         pre_save_cmds = { close_nvim_tree, close_dap_ui },
     },
-    config = function(_, opts)
-        require("auto-session").setup(opts)
-    end,
 }
