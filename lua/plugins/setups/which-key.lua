@@ -1,5 +1,6 @@
 return {
     "folke/which-key.nvim",
+    event = { "BufReadPre", "BufNewFile" },
     config = function(_, opts)
         dofile(vim.g.base46_cache .. "whichkey")
         require("which-key").setup(opts)
