@@ -47,5 +47,19 @@ return {
             desc = "Prev Reference",
             mode = { "n", "t" },
         },
+        {
+            "<leader>ns",
+            function()
+                Snacks.notifier.show_history()
+            end,
+            desc = "Notification History",
+        },
+        {
+            "<leader>nh",
+            function()
+                Snacks.notifier.hide()
+            end,
+            desc = "Dismiss All Notifications",
+        },
     },
 }

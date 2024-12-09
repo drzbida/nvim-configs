@@ -20,6 +20,7 @@ return {
             { "<leader>w", group = "which/workspace" },
             { "<leader><leader>", group = "terminal" },
             { "<leader>q", group = "trouble" },
+            { "<leader>n", group = "notifications" },
         }
     end,
     setup = function()
