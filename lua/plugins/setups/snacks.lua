@@ -8,6 +8,7 @@ return {
         quickfile = { enabled = true },
         lazygit = { enabled = true },
         words = { enabled = true },
+        indent = { enabled = true, char = "┃" },
     },
     keys = {
         {
