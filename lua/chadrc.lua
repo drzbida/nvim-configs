@@ -51,6 +51,10 @@ options.base46 = {
 
 options.ui = {
     statusline = require "configs.statusline",
+    cmp = {
+        style = "default",
+        icons_left = true,
+    },
 }
 
 options.nvdash = {

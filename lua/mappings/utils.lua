@@ -30,31 +30,8 @@ map("n", "<leader><leader>v", function()
     }
 end, { noremap = true, silent = true, desc = "Spawn Vertical Terminal" })
 
-map("n", "<leader><leader>f", function()
+map({ "n", "t" }, "<C-_>", function()
     require("nvchad.term").toggle {
         pos = "float",
     }
 end, { noremap = true, silent = true, desc = "Toggle Floating Terminal" })
-
-map("n", "<C-w>p", function()
-    local picked_window = require("window-picker").pick_window()
-    if picked_window then
-        vim.api.nvim_set_current_win(picked_window)
-    end
-end, { noremap = true, silent = true, desc = "Pick Window" })
-
--- Markdown Previews
-map("n", "<leader>tm", function()
-    require("render-markdown").toggle()
-end, { noremap = true, silent = true, desc = "Toggle Markdown Preview" })
-
-local list_snips = function()
-    local ft_list = require("luasnip").available()[vim.o.filetype]
-    local ft_snips = {}
-    for _, item in pairs(ft_list) do
-        ft_snips[item.trigger] = item.name
-    end
-    print(vim.inspect(ft_snips))
-end
-
-vim.api.nvim_create_user_command("SnipList", list_snips, {})
