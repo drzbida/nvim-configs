@@ -169,6 +169,22 @@ return {
             },
         },
     },
+    keys = {
+        {
+            "<leader>du",
+            function()
+                require("dapui").toggle()
+            end,
+            desc = "Toggle dapui",
+        },
+        {
+            "<leader>dk",
+            function()
+                require("dapui").eval(nil)
+            end,
+            { silent = true, desc = "Hover value" },
+        },
+    },
     config = function(_, opts)
         require("dapui").register_element("exception_controls", exception_controls_element)
         require("dapui").setup(opts)
@@ -183,9 +199,5 @@ return {
         dap.listeners.before.event_exited["dapui_config"] = function()
             dapui.close()
         end
-
-        vim.keymap.set("n", "<Leader>du", function()
-            require("dapui").toggle()
-        end, { silent = true, desc = "Toggle dapui" })
     end,
 }
