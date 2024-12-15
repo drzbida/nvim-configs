@@ -8,6 +8,7 @@ return {
             "DapStopped",
             { text = "", texthl = "DapStopped", linehl = "DapStopped", numhl = "DapStopped" }
         )
+        dofile(vim.g.base46_cache .. "dap")
 
         require("nvim-dap-virtual-text").setup()
         require "dapconfigs.dapconfigs"

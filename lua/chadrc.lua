@@ -31,9 +31,6 @@ options.base46 = {
             fg = "#268BD2",
             bg = "#0E2840",
         },
-        ["DapStopped"] = {
-            bg = "#0A1222",
-        },
         ["NvimDapVirtualText"] = {
             fg = "#d6ff07",
         },
@@ -47,6 +44,7 @@ options.base46 = {
             fg = "#424242",
         },
     },
+    integrations = { "dap", "diffview", "trouble" },
 }
 
 options.ui = {
