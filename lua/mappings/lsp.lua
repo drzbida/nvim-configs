@@ -16,3 +16,7 @@ end, { desc = "Super Tab" })
 map("n", "<leader>i", function()
     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end, { noremap = true, silent = true, desc = "Toggle inlay hints" })
+
+map("n", "<leader>cr", function()
+    require "nvchad.lsp.renamer"()
+end, { noremap = true, silent = true, desc = "Rename references" })
