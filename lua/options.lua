@@ -2,65 +2,60 @@ local opt = vim.opt
 local o = vim.o
 local g = vim.g
 
--------------------------------------- options ------------------------------------------
+-- {{{ General Settings
 o.laststatus = 3
 o.showmode = false
-
 o.clipboard = "unnamedplus"
 o.cursorline = true
 o.cursorlineopt = "number"
-
--- Indenting
-o.smartindent = true
-
-opt.fillchars = { eob = " " }
 o.ignorecase = true
 o.smartcase = true
 o.mouse = "a"
-
--- Numbers
-o.number = true
-o.numberwidth = 2
-o.ruler = false
-
--- disable nvim intro
-opt.shortmess:append "sI"
+o.timeoutlen = 400
+o.updatetime = 250
 
 o.signcolumn = "yes"
 o.splitbelow = true
 o.splitright = true
-o.timeoutlen = 400
 o.undofile = true
+o.relativenumber = true
 
--- interval for writing swap file to disk, also used by gitsigns
-o.updatetime = 250
+o.number = true
+o.numberwidth = 2
+o.ruler = false
+-- }}}
 
--- go to previous/next line with h,l,left arrow and right arrow
--- when cursor reaches end/beginning of line
+-- {{{ Indentation Settings
+o.smartindent = true
+o.tabstop = 4
+o.expandtab = true
+o.softtabstop = 4
+o.shiftwidth = 4
+-- }}}
+
+-- {{{ Visual Settings
+opt.fillchars:append { eob = " ", diff = "╱" }
+opt.shortmess:append "sI"
 opt.whichwrap:append "<>[]hl"
+-- }}}
 
--- disable some default providers
+-- {{{ Disable Default Providers
 g.loaded_node_provider = 0
 g.loaded_python3_provider = 0
 g.loaded_perl_provider = 0
 g.loaded_ruby_provider = 0
+-- }}}
 
--- add binaries installed by mason.nvim to path
-
+-- {{{ Mason.nvim Path Setup
 local is_windows = require("helpers").is_windows
 local sep = is_windows and "\\" or "/"
 local delim = is_windows and ";" or ":"
 vim.env.PATH = table.concat({ vim.fn.stdpath "data", "mason", "bin" }, sep) .. delim .. vim.env.PATH
+-- }}}
 
-vim.o.relativenumber = true
-
+-- {{{ Windows-Specific Shell Settings
 if is_windows() then
-    if vim.fn.executable "pwsh" == 1 then
-        vim.o.shell = "pwsh"
-    else
-        vim.o.shell = "powershell"
-    end
-
+    vim.o.shell = vim.fn.executable "pwsh" == 1 and "pwsh" or "powershell"
     vim.o.shellcmdflag =
         "-NoLogo -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new();$PSDefaultParameterValues['Out-File:Encoding']='utf8';"
     vim.o.shellredir = '2>&1 | %{ "$_" } | Out-File %s; exit $LastExitCode'
@@ -68,19 +63,13 @@ if is_windows() then
     vim.o.shellquote = ""
     vim.o.shellxquote = ""
 end
+-- }}}
 
-vim.o.tabstop = 4
-vim.o.expandtab = true
-vim.o.softtabstop = 4
-vim.o.shiftwidth = 4
-vim.opt.fillchars:append { diff = "╱" }
---
--- Support clipboard in wezterm ssh. Paste from clipboard does not work in wezterm.
-if os.getenv "SSH_CLIENT" ~= nil or os.getenv "SSH_TTY" ~= nil then
+-- {{{ Clipboard Support for WezTerm SSH
+if os.getenv "SSH_CLIENT" or os.getenv "SSH_TTY" then
     local function my_paste(_)
         return function(_)
-            local content = vim.fn.getreg '"'
-            return vim.split(content, "\n")
+            return vim.split(vim.fn.getreg '"', "\n")
         end
     end
 
@@ -96,13 +85,15 @@ if os.getenv "SSH_CLIENT" ~= nil or os.getenv "SSH_TTY" ~= nil then
         },
     }
 end
+-- }}}
 
-vim.cmd "autocmd FileType * set formatoptions-=cro"
-vim.cmd "autocmd FileType * setlocal formatoptions-=cro"
+-- {{{ Autocommands
+vim.cmd [[
+    autocmd FileType * set formatoptions-=cro
+    autocmd FileType * setlocal formatoptions-=cro
+]]
 
 local autocmd = vim.api.nvim_create_autocmd
-
--- user event that loads after UIEnter + only if file buf is there
 autocmd({ "UIEnter", "BufReadPost", "BufNewFile" }, {
     group = vim.api.nvim_create_augroup("NvFilePost", { clear = true }),
     callback = function(args)
@@ -119,7 +110,6 @@ autocmd({ "UIEnter", "BufReadPost", "BufNewFile" }, {
 
             vim.schedule(function()
                 vim.api.nvim_exec_autocmds("FileType", {})
-
                 if vim.g.editorconfig then
                     require("editorconfig").config(args.buf)
                 end
@@ -127,3 +117,4 @@ autocmd({ "UIEnter", "BufReadPost", "BufNewFile" }, {
         end
     end,
 })
+-- }}}

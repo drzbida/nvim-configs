@@ -1,6 +1,13 @@
 return {
     "nvim-tree/nvim-tree.lua",
     cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+    keys = {
+        {
+            "<leader>e",
+            "<cmd>NvimTreeToggle<CR>",
+            desc = "Toggle NvimTree",
+        },
+    },
     opts = function()
         dofile(vim.g.base46_cache .. "nvimtree")
         return {
@@ -13,8 +20,8 @@ return {
                 update_root = false,
             },
             view = {
-                width = 30,
-                preserve_window_proportions = true,
+                width = 40,
+                preserve_window_proportions = false,
             },
             renderer = {
                 root_folder_label = false,

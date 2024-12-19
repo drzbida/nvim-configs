@@ -34,6 +34,16 @@ return {
             end,
             desc = "Find references",
         },
+        {
+            "<leader>fw",
+            "<cmd>Telescope live_grep<CR>",
+            desc = "Find references",
+        },
+        {
+            "<leader>ff",
+            "<cmd>Telescope find_files<CR>",
+            desc = "Find files",
+        },
     },
     config = function(_, opts)
         require("telescope").load_extension "ui-select"
