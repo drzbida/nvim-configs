@@ -1,12 +1,20 @@
 return {
     "lewis6991/gitsigns.nvim",
-    opts = {
-        current_line_blame = true,
-        current_line_blame_opts = {
-            delay = 400,
-            virt_text_pos = "eol",
-        },
-    },
+    event = "User FilePost",
+    opts = function()
+        dofile(vim.g.base46_cache .. "git")
+        return {
+            current_line_blame = true,
+            current_line_blame_opts = {
+                delay = 400,
+                virt_text_pos = "eol",
+            },
+            signs = {
+                delete = { text = "󰍵" },
+                changedelete = { text = "󱕖" },
+            },
+        }
+    end,
     keys = {
         {
             "<Leader>sp",

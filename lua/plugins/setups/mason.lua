@@ -1,40 +1,55 @@
 return {
     "williamboman/mason.nvim",
-    opts = {
-        ensure_installed = {
-            -- lua
-            "lua-language-server",
-            "stylua",
+    cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUpdate" },
+    opts = function()
+        dofile(vim.g.base46_cache .. "mason")
+        return {
+            PATH = "skip",
 
-            -- webdev
-            "html-lsp",
-            "css-lsp",
-            "prettier",
-            "typescript-language-server",
-            "eslint_d",
-            "angular-language-server",
-            "js-debug-adapter",
+            ui = {
+                icons = {
+                    package_pending = " ",
+                    package_installed = " ",
+                    package_uninstalled = " ",
+                },
+            },
 
-            -- python
-            "basedpyright",
-            "debugpy",
-            "ruff",
+            max_concurrent_installers = 10,
+            ensure_installed = {
+                -- lua
+                "lua-language-server",
+                "stylua",
 
-            -- scripting
-            "bash-language-server",
+                -- webdev
+                "html-lsp",
+                "css-lsp",
+                "prettier",
+                "typescript-language-server",
+                "eslint_d",
+                "angular-language-server",
+                "js-debug-adapter",
 
-            -- godot
-            "gdscript",
-            "godot_resource",
-            "gdshader",
+                -- python
+                "basedpyright",
+                "debugpy",
+                "ruff",
 
-            -- .net
-            "roslyn",
-            -- "netcoredbg",
+                -- scripting
+                "bash-language-server",
 
-            -- rust
-            "rust-analyzer",
-            "codelldb",
-        },
-    },
+                -- godot
+                "gdscript",
+                "godot_resource",
+                "gdshader",
+
+                -- .net
+                "roslyn",
+                -- "netcoredbg",
+
+                -- rust
+                "rust-analyzer",
+                "codelldb",
+            },
+        }
+    end,
 }

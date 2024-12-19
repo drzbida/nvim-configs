@@ -1,4 +1,3 @@
-require "nvchad.mappings"
 local map = vim.keymap.set
 local unmap = vim.keymap.del
 
@@ -51,9 +50,9 @@ map({ "n", "t" }, "<C-_>", function()
 end, { noremap = true, silent = true, desc = "Toggle Floating Terminal" })
 
 -- DELETE DEFAULT MAPPINGS
-unmap("n", "<Leader>n") -- line numbers
-unmap("n", "<Leader>h") -- horizontal window
-unmap("n", "<Leader>v") -- vertical window
-unmap("n", "<M-v>") -- Toggleable vertical terminal
-unmap("n", "<M-h>") -- New horizontal terminal
-unmap("n", "<M-i>") -- Toggleable floating terminal
+-- unmap("n", "<Leader>n") -- line numbers
+-- unmap("n", "<Leader>h") -- horizontal window
+-- unmap("n", "<Leader>v") -- vertical window
+-- unmap("n", "<M-v>") -- Toggleable vertical terminal
+-- unmap("n", "<M-h>") -- New horizontal terminal
+-- unmap("n", "<M-i>") -- Toggleable floating terminal

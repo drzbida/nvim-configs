@@ -1,5 +1,56 @@
-require "nvchad.options"
+local opt = vim.opt
+local o = vim.o
+local g = vim.g
+
+-------------------------------------- options ------------------------------------------
+o.laststatus = 3
+o.showmode = false
+
+o.clipboard = "unnamedplus"
+o.cursorline = true
+o.cursorlineopt = "number"
+
+-- Indenting
+o.smartindent = true
+
+opt.fillchars = { eob = " " }
+o.ignorecase = true
+o.smartcase = true
+o.mouse = "a"
+
+-- Numbers
+o.number = true
+o.numberwidth = 2
+o.ruler = false
+
+-- disable nvim intro
+opt.shortmess:append "sI"
+
+o.signcolumn = "yes"
+o.splitbelow = true
+o.splitright = true
+o.timeoutlen = 400
+o.undofile = true
+
+-- interval for writing swap file to disk, also used by gitsigns
+o.updatetime = 250
+
+-- go to previous/next line with h,l,left arrow and right arrow
+-- when cursor reaches end/beginning of line
+opt.whichwrap:append "<>[]hl"
+
+-- disable some default providers
+g.loaded_node_provider = 0
+g.loaded_python3_provider = 0
+g.loaded_perl_provider = 0
+g.loaded_ruby_provider = 0
+
+-- add binaries installed by mason.nvim to path
+
 local is_windows = require("helpers").is_windows
+local sep = is_windows and "\\" or "/"
+local delim = is_windows and ";" or ":"
+vim.env.PATH = table.concat({ vim.fn.stdpath "data", "mason", "bin" }, sep) .. delim .. vim.env.PATH
 
 vim.o.relativenumber = true
 
@@ -48,3 +99,31 @@ end
 
 vim.cmd "autocmd FileType * set formatoptions-=cro"
 vim.cmd "autocmd FileType * setlocal formatoptions-=cro"
+
+local autocmd = vim.api.nvim_create_autocmd
+
+-- user event that loads after UIEnter + only if file buf is there
+autocmd({ "UIEnter", "BufReadPost", "BufNewFile" }, {
+    group = vim.api.nvim_create_augroup("NvFilePost", { clear = true }),
+    callback = function(args)
+        local file = vim.api.nvim_buf_get_name(args.buf)
+        local buftype = vim.api.nvim_get_option_value("buftype", { buf = args.buf })
+
+        if not vim.g.ui_entered and args.event == "UIEnter" then
+            vim.g.ui_entered = true
+        end
+
+        if file ~= "" and buftype ~= "nofile" and vim.g.ui_entered then
+            vim.api.nvim_exec_autocmds("User", { pattern = "FilePost", modeline = false })
+            vim.api.nvim_del_augroup_by_name "NvFilePost"
+
+            vim.schedule(function()
+                vim.api.nvim_exec_autocmds("FileType", {})
+
+                if vim.g.editorconfig then
+                    require("editorconfig").config(args.buf)
+                end
+            end)
+        end
+    end,
+})
