@@ -1,6 +1,4 @@
 return {
-    "nvim-lua/plenary.nvim",
-
     {
         "nvchad/base46",
         build = function()
@@ -19,12 +17,4 @@ return {
     "nvzone/volt",
     "nvzone/menu",
     { "nvzone/minty", cmd = { "Huefy", "Shades" } },
-
-    {
-        "nvim-tree/nvim-web-devicons",
-        opts = function()
-            dofile(vim.g.base46_cache .. "devicons")
-            return { override = require "nvchad.icons.devicons" }
-        end,
-    },
 }

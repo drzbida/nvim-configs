@@ -5,10 +5,6 @@ map("n", "<leader>i", function()
     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end, { noremap = true, silent = true, desc = "Toggle inlay hints" })
 
-map("n", "<leader>cr", function()
-    require "nvchad.lsp.renamer"()
-end, { noremap = true, silent = true, desc = "Rename references" })
-
 -- WINDOW MANAGEMENT
 map({ "n", "v" }, "<C-Left>", "<C-W>>", { desc = "Increase window to left" })
 map({ "n", "v" }, "<C-Right>", "<C-W><", { desc = "Increase window to right" })
