@@ -1,10 +1,6 @@
 return {
     "williamboman/mason.nvim",
     opts = {
-        registries = {
-            "github:mason-org/mason-registry",
-            "github:syndim/mason-registry",
-        },
         ensure_installed = {
             -- lua
             "lua-language-server",
