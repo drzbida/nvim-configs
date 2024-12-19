@@ -6,14 +6,14 @@ local options = {}
 
 options.base46 = {
     theme = "radium",
-    -- hl_override = {
-    --     ["@function.call"] = {
-    --         bold = true,
-    --     },
-    --     ["@function.method.call"] = {
-    --         bold = true,
-    --     },
-    -- },
+    hl_override = {
+        ["@function.call"] = {
+            bold = true,
+        },
+        ["@function.method.call"] = {
+            bold = true,
+        },
+    },
     hl_add = {
         ["DiagnosticVirtualTextError"] = {
             fg = "#DB302D",
@@ -58,6 +58,7 @@ options.base46 = {
         "syntax",
         "whichkey",
         "treesitter",
+        "devicons",
     },
 }
 
