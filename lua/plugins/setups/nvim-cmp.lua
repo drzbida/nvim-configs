@@ -1,8 +1,6 @@
 return {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
-    lazy = false,
-
     dependencies = {
         {
             -- snippet plugin
@@ -61,7 +59,7 @@ return {
     opts = function()
         dofile(vim.g.base46_cache .. "cmp")
         local cmp = require "cmp"
-        return {
+        local options = {
             completion = { completeopt = "menu,menuone" },
             snippet = {
                 expand = function(args)
@@ -117,5 +115,6 @@ return {
                 { name = "path" },
             },
         }
+        return vim.tbl_deep_extend("force", options, require "nvchad.cmp")
     end,
 }
