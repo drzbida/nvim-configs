@@ -3,9 +3,6 @@ return {
     ft = "cs",
     opts = {
         config = {
-            on_init = function(client)
-                -- client.offset_encoding = "utf-8"
-            end,
             handlers = {
                 ["textDocument/hover"] = function(err, result, ctx, config)
                     if result and result.contents and result.contents.value then
@@ -14,26 +11,7 @@ return {
                     vim.lsp.handlers["textDocument/hover"](err, result, ctx, config)
                 end,
             },
-            on_attach = function(client, bufnr)
-                vim.api.nvim_set_keymap(
-                    "n",
-                    "gd",
-                    "<cmd>lua vim.lsp.buf.definition()<CR>",
-                    { noremap = true, silent = true }
-                )
-                vim.api.nvim_set_keymap(
-                    "n",
-                    "gD",
-                    "<cmd>lua vim.lsp.buf.declaration()<CR>",
-                    { noremap = true, silent = true }
-                )
-                vim.api.nvim_set_keymap(
-                    "n",
-                    "gi",
-                    "<cmd>lua vim.lsp.buf.implementation()<CR>",
-                    { noremap = true, silent = true }
-                )
-            end,
+            on_attach = require("plugins.lsp.configs.defaults").on_attach,
             settings = {
                 ["csharp|inlay_hints"] = {
                     csharp_enable_inlay_hints_for_implicit_object_creation = true,
@@ -49,13 +27,8 @@ return {
                     dotnet_suppress_inlay_hints_for_parameters_that_match_argument_name = false,
                     dotnet_suppress_inlay_hints_for_parameters_that_match_method_intent = false,
                 },
-                -- ["csharp|background_analysis"] = {
-                --     dotnet_compiler_diagnostics_scope = "fullSolution",
-                --     dotnet_analyzer_diagnostics_scope = "fullSolution",
-                -- },
                 ["csharp|code_lens"] = { dotnet_enable_references_code_lens = true },
             },
         },
     },
-    lazy = true,
 }

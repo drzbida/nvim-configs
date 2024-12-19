@@ -1,18 +1,5 @@
 return {
     "mfussenegger/nvim-dap",
-    config = function()
-        vim.fn.sign_define("DapBreakpoint", { text = "🤡", texthl = "", linehl = "", numhl = "" })
-        vim.fn.sign_define("DapBreakpointCondition", { text = "💀", texthl = "", linehl = "", numhl = "" })
-        vim.fn.sign_define("DapBreakpointRejected", { text = "😵", texthl = "", linehl = "", numhl = "" })
-        vim.fn.sign_define(
-            "DapStopped",
-            { text = "", texthl = "DapStopped", linehl = "DapStopped", numhl = "DapStopped" }
-        )
-        dofile(vim.g.base46_cache .. "dap")
-
-        require("nvim-dap-virtual-text").setup()
-        require "dapconfigs.dapconfigs"
-    end,
     keys = {
         {
             "<F5>",
@@ -61,4 +48,26 @@ return {
             desc = "Run last debug session",
         },
     },
+    config = function()
+        vim.fn.sign_define("DapBreakpoint", { text = "🤡", texthl = "", linehl = "", numhl = "" })
+        vim.fn.sign_define("DapBreakpointCondition", { text = "💀", texthl = "", linehl = "", numhl = "" })
+        vim.fn.sign_define("DapBreakpointRejected", { text = "😵", texthl = "", linehl = "", numhl = "" })
+        vim.fn.sign_define(
+            "DapStopped",
+            { text = "", texthl = "DapStopped", linehl = "DapStopped", numhl = "DapStopped" }
+        )
+        dofile(vim.g.base46_cache .. "dap")
+
+        require("nvim-dap-virtual-text").setup()
+
+        require "plugins.debugging.configs.godot"
+        require "plugins.debugging.configs.debugpy"
+        require "plugins.debugging.configs.typescript"
+        require "plugins.debugging.configs.codelldb"
+
+        local ok, _ = pcall(require, "plugins.debugging.dotnet.dotnet")
+        if not ok then
+            vim.notify("dap-dotnet not installed", vim.log.levels.WARN)
+        end
+    end,
 }
