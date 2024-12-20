@@ -5,7 +5,7 @@
 local options = {}
 
 options.base46 = {
-    theme = "radium",
+    theme = "rosepine",
     hl_override = {
         ["@function.call"] = {
             bold = true,

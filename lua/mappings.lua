@@ -1,10 +1,5 @@
 local map = vim.keymap.set
 
--- LSP KEYBINDS
-map("n", "<leader>i", function()
-    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-end, { noremap = true, silent = true, desc = "Toggle inlay hints" })
-
 -- WINDOW MANAGEMENT
 map({ "n", "v" }, "<C-Left>", "<C-W>>", { desc = "Increase window to left" })
 map({ "n", "v" }, "<C-Right>", "<C-W><", { desc = "Increase window to right" })
@@ -21,6 +16,8 @@ map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
 map("n", "n", "nzz")
 map("n", "N", "Nzz")
+map("n", "<Esc>", "<cmd>noh<CR>", { desc = "General clear highlights" })
+map("t", "<leader><Esc>", "<C-\\><C-N>", { desc = "Escape terminal mode" })
 
 -- NVCHAD KEYBINDS
 map("i", "<C-c>", function()
