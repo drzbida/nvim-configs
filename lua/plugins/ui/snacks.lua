@@ -67,6 +67,20 @@ return {
             end,
             desc = "Dismiss All Notifications",
         },
+        {
+            "<leader>bo",
+            function()
+                Snacks.bufdelete.other()
+            end,
+            desc = "Delete Other Buffers",
+        },
+        {
+            "<leader>bd",
+            function()
+                Snacks.bufdelete()
+            end,
+            desc = "Delete Buffer",
+        },
     },
     init = function()
         vim.api.nvim_create_autocmd("User", {

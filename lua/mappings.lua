@@ -65,3 +65,9 @@ map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 
 -- QUIT
 map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
+
+-- BUFFERS
+map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
+map("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
+map("n", "<leader>b<Tab>", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
+map("n", "<leader>bD", "<cmd>:bd<cr>", { desc = "Delete Buffer and Window" })
