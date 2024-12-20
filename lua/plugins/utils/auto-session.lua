@@ -6,6 +6,7 @@ local function close_dap_ui()
 end
 return {
     "rmagatti/auto-session",
+    enabled = false,
     lazy = false,
     opts = {
         pre_save_cmds = { close_nvim_tree, close_dap_ui },
