@@ -5,22 +5,22 @@ return {
     keys = {
         -- 👇 in this section, choose your own keymappings!
         {
-            "<leader>-",
+            "<leader>=o",
             "<cmd>Yazi<cr>",
-            desc = "Open yazi at the current file",
+            desc = "Yazi at buf",
         },
         {
             -- Open in the current working directory
-            "<leader>cw",
+            "<leader>=O",
             "<cmd>Yazi cwd<cr>",
-            desc = "Open the file manager in nvim's working directory",
+            desc = "Yazi at cwd",
         },
         {
             -- NOTE: this requires a version of yazi that includes
             -- https://github.com/sxyazi/yazi/pull/1305 from 2024-07-18
-            "<leader>=",
+            "<leader>=r",
             "<cmd>Yazi toggle<cr>",
-            desc = "Resume the last yazi session",
+            desc = "Resume yazi",
         },
     },
     ---@type YaziConfig

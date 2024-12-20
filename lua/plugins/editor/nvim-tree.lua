@@ -5,7 +5,7 @@ return {
         {
             "<leader>e",
             "<cmd>NvimTreeToggle<CR>",
-            desc = "Toggle NvimTree",
+            desc = "Tree UI",
         },
     },
     opts = function()

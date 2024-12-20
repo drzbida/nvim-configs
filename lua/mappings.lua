@@ -26,9 +26,9 @@ map("i", "<C-c>", function()
     end
 end, { noremap = true, silent = true })
 
-map("n", "<leader>th", function()
+map("n", "<leader>ut", function()
     require("nvchad.themes").open()
-end, { desc = "Nvchad themes" })
+end, { desc = "Select theme" })
 
 -- SPAWN TERMINAL KEYBINDS
 map("n", "<leader><leader>s", function()
@@ -51,5 +51,17 @@ map({ "n", "t" }, "<C-_>", function()
 end, { noremap = true, silent = true, desc = "Toggle Floating Terminal" })
 
 -- COMMENT
-map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
-map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
+map("n", "<leader>/", "gcc", { desc = "Comment Code", remap = true })
+map("v", "<leader>/", "gc", { desc = "Comment Code", remap = true })
+
+-- TABS
+map("n", "<leader><tab>l", "<cmd>tablast<cr>", { desc = "Last Tab" })
+map("n", "<leader><tab>o", "<cmd>tabonly<cr>", { desc = "Close Other Tabs" })
+map("n", "<leader><tab>f", "<cmd>tabfirst<cr>", { desc = "First Tab" })
+map("n", "<leader><tab><tab>", "<cmd>tabnew<cr>", { desc = "New Tab" })
+map("n", "<leader><tab>]", "<cmd>tabnext<cr>", { desc = "Next Tab" })
+map("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
+map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
+
+-- QUIT
+map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })

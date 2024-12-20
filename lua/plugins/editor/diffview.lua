@@ -11,7 +11,7 @@ return {
     },
     keys = {
         {
-            "<Leader>st",
+            "<Leader>gtt",
             function()
                 if next(require("diffview.lib").views) == nil then
                     vim.cmd "DiffviewOpen"
@@ -24,14 +24,14 @@ return {
             silent = true,
         },
         {
-            "<Leader>ssf",
+            "<Leader>gtf",
             "<Cmd>DiffviewFileHistory %<CR>",
             desc = "File history",
             noremap = true,
             silent = true,
         },
         {
-            "<Leader>ssb",
+            "<Leader>gtb",
             "<Cmd>DiffviewFileHistory<CR>",
             desc = "Branch history",
             noremap = true,

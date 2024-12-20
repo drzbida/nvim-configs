@@ -3,7 +3,7 @@ return {
     event = "VeryLazy",
     opts_extend = { "spec" },
     opts = {
-        preset = "modern",
+        preset = "helix",
         defaults = {},
         spec = {
             {
@@ -11,15 +11,16 @@ return {
                 { "<leader>c", group = "code" },
                 { "<leader>d", group = "debug" },
                 { "<leader>f", group = "find" },
-                { "<leader>g", group = "goto" },
-                { "<leader>m", group = "marks" },
-                { "<leader>s", group = "source control" },
-                { "<leader>ss", group = "history" },
-                { "<leader>v", group = "enviroment" },
-                { "<leader>w", group = "which/workspace" },
+                { "<leader>g", group = "git" },
+                { "<leader>gh", group = "hunks" },
+                { "<leader>gt", group = "diffview" },
+                { "<leader>=", group = "file browser" },
                 { "<leader><leader>", group = "terminal" },
-                { "<leader>q", group = "trouble" },
+                { "<leader>x", group = "diagnostics/quickfix", icon = { icon = "󱖫 ", color = "green" } },
                 { "<leader>n", group = "notifications" },
+                { "<leader><tab>", group = "tabs" },
+                { "<leader>q", group = "quit/session" },
+                { "<leader>u", group = "ui" },
 
                 { "[", group = "prev" },
                 { "]", group = "next" },

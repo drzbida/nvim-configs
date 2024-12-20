@@ -9,18 +9,16 @@ M.on_attach = function(_, bufnr)
     map("n", "gD", vim.lsp.buf.declaration, opts "Go to declaration")
     map("n", "gd", vim.lsp.buf.definition, opts "Go to definition")
     map("n", "gi", vim.lsp.buf.implementation, opts "Go to implementation")
-    map("n", "<leader>sh", vim.lsp.buf.signature_help, opts "Show signature help")
 
-    map("n", "<leader>D", vim.lsp.buf.type_definition, opts "Go to type definition")
     map("n", "<leader>cr", function()
         require "nvchad.lsp.renamer"()
     end, { noremap = true, silent = true, desc = "Rename references" })
 
     map("n", "gr", vim.lsp.buf.references, opts "Show references")
 
-    map("n", "<leader>i", function()
-        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-    end, { noremap = true, silent = true, desc = "Toggle inlay hints" })
+    -- map("n", "<leader>i", function()
+    --     vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+    -- end, { noremap = true, silent = true, desc = "Toggle inlay hints" })
 end
 
 M.on_init = function(client, _)

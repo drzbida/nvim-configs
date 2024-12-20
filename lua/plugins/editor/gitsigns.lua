@@ -17,16 +17,16 @@ return {
     end,
     keys = {
         {
-            "<Leader>sp",
+            "<Leader>ghp",
             function()
                 require("gitsigns").preview_hunk_inline()
             end,
-            desc = "Preview hunk",
+            desc = "Preview hunk inline",
             noremap = true,
             silent = true,
         },
         {
-            "<Leader>sr",
+            "<Leader>ghr",
             function()
                 require("gitsigns").reset_hunk()
             end,
@@ -35,10 +35,37 @@ return {
             silent = true,
         },
         {
-            "]c",
+            "<leader>ghR",
+            function()
+                require("gitsigns").reset_buffer()
+            end,
+            desc = "Reset Buffer",
+            noremap = true,
+            silent = true,
+        },
+        {
+            "<leader>ghd",
+            function()
+                require("gitsigns").diffthis()
+            end,
+            desc = "Diff This",
+            noremap = true,
+            silent = true,
+        },
+        {
+            "<leader>ghD",
+            function()
+                require("gitsigns").diffthis "~"
+            end,
+            desc = "Diff This ~",
+            noremap = true,
+            silent = true,
+        },
+        {
+            "]h",
             function()
                 if vim.wo.diff then
-                    vim.cmd.normal { "]c", bang = true }
+                    vim.cmd.normal { "]h", bang = true }
                 else
                     require("gitsigns").nav_hunk "next"
                 end
@@ -48,10 +75,10 @@ return {
             silent = true,
         },
         {
-            "[c",
+            "[h",
             function()
                 if vim.wo.diff then
-                    vim.cmd.normal { "[c", bang = true }
+                    vim.cmd.normal { "[h", bang = true }
                 else
                     require("gitsigns").nav_hunk "prev"
                 end

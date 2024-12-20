@@ -172,7 +172,7 @@ return {
             "<cmd>FzfLua files<cr>",
             desc = "Find files",
         },
-        { "<leader>:", "<cmd>FzfLua command_history<cr>", desc = "Command History" },
+        { "<leader>:", "<cmd>FzfLua command_history<cr>", desc = "Terminal History" },
         { "<leader>fM", "<cmd>FzfLua man_pages<cr>", desc = "Man Pages" },
         { "<leader>fm", "<cmd>FzfLua marks<cr>", desc = "Jump to Mark" },
         { "<leader>fr", "<cmd>FzfLua resume<cr>", desc = "Resume" },
