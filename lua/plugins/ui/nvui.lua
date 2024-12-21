@@ -9,6 +9,7 @@ return {
     {
         "nvchad/ui",
         lazy = false,
+        priority = 1000,
         config = function()
             require "nvchad"
         end,

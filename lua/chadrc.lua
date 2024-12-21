@@ -63,6 +63,9 @@ options.base46 = {
 
 options.ui = {
     statusline = require "configs.statusline",
+    tabufline = {
+        enabled = false,
+    },
     cmp = {
         style = "default",
         icons_left = true,

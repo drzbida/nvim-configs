@@ -21,6 +21,7 @@ require("lazy").setup({
 
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
+dofile(vim.g.base46_cache .. "git")
 
 vim.schedule(function()
     require "mappings"

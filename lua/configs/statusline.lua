@@ -23,6 +23,7 @@ local function get_csharp_sln()
 end
 
 return {
+    enabled = false,
     theme = "minimal",
     order = {
         "mode",
